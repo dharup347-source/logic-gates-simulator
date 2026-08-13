@@ -4,29 +4,28 @@ A beginner project for Electronics & VLSI students.
 """
 
 def AND(a, b):
-    return a and b
+    return 1 if (a and b) else 0
 
 def OR(a, b):
-    return a or b
+    return 1 if (a or b) else 0
 
 def NOT(a):
-    return not a
+    return 1 if not a else 0
 
 def NAND(a, b):
-    return not (a and b)
+    return 1 if not (a and b) else 0
 
 def NOR(a, b):
-    return not (a or b)
+    return 1 if not (a or b) else 0
 
 def XOR(a, b):
-    return a != b
+    return 1 if (a != b) else 0
 
 def XNOR(a, b):
-    return a == b
+    return 1 if (a == b) else 0
 
 
 def get_binary_input(prompt):
-    """Ask user for 0 or 1 and validate."""
     while True:
         value = input(prompt).strip()
         if value in ("0", "1"):
@@ -51,7 +50,7 @@ def main():
         if gate == "NOT":
             a = get_binary_input("Enter input (0 or 1): ")
             result = NOT(a)
-            print(f"NOT {a} = {int(result)}")
+            print(f"NOT {a} = {result}")
 
         elif gate in ("AND", "OR", "NAND", "NOR", "XOR", "XNOR"):
             a = get_binary_input("Enter first input (0 or 1): ")
@@ -70,7 +69,7 @@ def main():
             elif gate == "XNOR":
                 result = XNOR(a, b)
 
-            print(f"{gate}({a}, {b}) = {int(result)}")
+            print(f"{gate}({a}, {b}) = {result}")
 
         else:
             print("Invalid gate. Please try again.")
